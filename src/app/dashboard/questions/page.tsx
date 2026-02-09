@@ -1,9 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
-/* ================= TYPES ================= */
-
 type Question = {
   id: number;
   text: string;
@@ -15,8 +12,6 @@ type QuestionSet = {
   name: string;
   questions: Question[];
 };
-
-/* ================= MOCK DATA ================= */
 
 const initialSets: QuestionSet[] = [
   {
@@ -36,8 +31,6 @@ const initialSets: QuestionSet[] = [
   },
 ];
 
-/* ================= PAGE ================= */
-
 export default function QuestionsPage() {
   const [sets, setSets] = useState<QuestionSet[]>(initialSets);
   const [openSet, setOpenSet] = useState(false);
@@ -45,7 +38,6 @@ export default function QuestionsPage() {
 
   return (
     <div>
-      {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">
           Questions
@@ -56,9 +48,8 @@ export default function QuestionsPage() {
         >
           Create Question Set
         </button>
+        
       </div>
-
-      {/* Question Sets */}
       <div className="space-y-4">
         {sets.map((set) => (
           <div
@@ -109,7 +100,6 @@ export default function QuestionsPage() {
         ))}
       </div>
 
-      {/* Create Question Set Modal */}
       {openSet && (
         <div className="modal modal-open">
           <div className="modal-box">
